@@ -3,39 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resume Skill Analyzer</title>
+  <title>SkillRadar - Resume Analyzer</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Resume Skill Analyzer</h1>
+    <h1>📊 SkillRadar - Resume Skill Analyzer</h1>
 
-    <h2>Select Resume Category</h2>
+    <label for="categorySelect">Choose Role:</label>
     <select id="categorySelect">
       <option value="frontend">Frontend Developer</option>
       <option value="backend">Backend Developer</option>
       <option value="fullstack">Full Stack Developer</option>
     </select>
 
-    <h2>Paste Your Resume Text</h2>
     <textarea id="resumeInput" placeholder="Paste your resume here..."></textarea>
-    <button onclick="analyzeResume()">Analyze</button>
+    
+    <button onclick="analyzeResume()">Analyze Resume</button>
 
-    <h2>Detected Skills</h2>
-    <ul id="matchedSkills"></ul>
+    <div class="results">
+      <div>
+        <h3>✅ Matched Skills</h3>
+        <ul id="matchedSkills"></ul>
+      </div>
+      <div>
+        <h3>❌ Missing Skills</h3>
+        <ul id="missingSkills"></ul>
+      </div>
+    </div>
 
-    <h2>Missing Suggested Skills</h2>
-    <ul id="missingSkills"></ul>
+    <canvas id="skillChart" width="300" height="300"></canvas>
 
-    <h2>Radar Chart</h2>
-    <canvas id="skillChart" width="400" height="400"></canvas>
-
-    <div class="export-buttons">
-      <button onclick="exportToPDF()">Export as PDF</button>
-      <button onclick="downloadAsJSON()">Download JSON</button>
+    <div class="actions">
+      <button onclick="exportToPDF()">🖨️ Export to PDF</button>
+      <button onclick="downloadAsJSON()">⬇️ Download JSON</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
