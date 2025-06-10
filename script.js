@@ -33,7 +33,6 @@ function analyzeResume() {
   renderList("missingSkills", missing);
   drawRadarChart(skillSet, matched);
 
-  // Store for export
   window.lastAnalysis = { category, matched, missing };
 }
 
@@ -54,7 +53,7 @@ function drawRadarChart(skillSet, matchedSkills) {
 
   const centerX = canvas.width / 2;
   const centerY = canvas.height / 2;
-  const radius = 130;
+  const radius = 100;
   const angleStep = (2 * Math.PI) / skillSet.length;
 
   // Outer polygon
@@ -84,13 +83,13 @@ function drawRadarChart(skillSet, matchedSkills) {
   ctx.strokeStyle = "#007bff";
   ctx.stroke();
 
-  // Skill labels
+  // Labels
   ctx.fillStyle = "#000";
   ctx.font = "11px sans-serif";
   skillSet.forEach((skill, i) => {
     const angle = i * angleStep;
-    const x = centerX + (radius + 20) * Math.cos(angle);
-    const y = centerY + (radius + 20) * Math.sin(angle);
+    const x = centerX + (radius + 15) * Math.cos(angle);
+    const y = centerY + (radius + 15) * Math.sin(angle);
     ctx.fillText(skill, x - 20, y);
   });
 }
