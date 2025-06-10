@@ -112,7 +112,7 @@ function downloadAsJSON() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = resume-analysis-${window.lastAnalysis.category}.json;
+  a.download = `resume-analysis-${window.lastAnalysis.category}.json`;
   a.click();
   URL.revokeObjectURL(url);
 }
